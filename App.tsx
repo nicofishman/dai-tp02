@@ -1,46 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { styled } from 'nativewind';
-import * as Contacts from 'expo-contacts';
-import { useEffect } from 'react';
 
-const StyledView = styled(View)
-const StyledText = styled(Text)
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function App() {
-    useEffect(() => {
-        (async () => {
-          const { status } = await Contacts.requestPermissionsAsync();
-          if (status === 'granted') {
-            const { data } = await Contacts.getContactsAsync({
-                fields: [
-                    Contacts.PHONE_NUMBERS,
-                    Contacts.EMAILS,
-                ],
-            });
-            
-    
-            if (data.length > 0) {
-              const contact = data[0];
-              console.log(contact);
-            }
-          }
-        })();
-      }, []);
+import { RootStackParamList } from './src/navigators/types';
+import BottomTab from './src/navigators/BottomTab';
+import SingleContact from './src/views/SingleContact';
 
-  return (
-    <StyledView className="flex-1 items-center justify-center bg-amber-400">
-      <StyledText>Open up App.tsx to start working on your app!</StyledText>
-      <StatusBar style="auto" />
-    </StyledView>
-  );
+export default function App () {
+    const RootStack = createNativeStackNavigator<RootStackParamList>();
+
+    return (
+        <NavigationContainer>
+            <RootStack.Navigator>
+                <RootStack.Screen component={SingleContact} name="SingleContact" />
+                <RootStack.Screen component={BottomTab} name="BottomTab" />
+            </RootStack.Navigator>
+        </NavigationContainer>
+    );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
