@@ -1,0 +1,20 @@
+PANTALLAS:
+- Pantalla de configuración de Número telefónico de emergencia/aviso: Esta pantalla debe poder configurarse un número de teléfono válido. El mismo se almacena en el LocalStorage del dispositivo.
+
+- Pantalla de visualización de todos los Contactos del Teléfono utilizando la FlatList. Se debe mostrar el Nombre y Apellido / Número telefónico y un indicador si es el Numero de Contacto predeterminado de emergencia (con algún icono o similar)
+
+- Pantalla de fecha, hora, temperatura y ubicación. La Temperatura se debe poder obtener según el geo-posicionamiento del dispositivo (Location). 
+
+- Pantalla para subir la foto de fondo: La aplicación debe ser capaz de poder sacar una foto (Camera) y almacenarla en la galería de imágenes (Image Picker) o seleccionar una imagen de fondo de la galería de imágenes, para luego de seleccionarla poder cambiar dinámicamente la imagen de fondo de toda la aplicación. La próxima vez que inicio la aplicación debe estar la imagen seleccionada (LocalStorage)
+
+- Pantalla de video: Tiene que tener un input de texto que si se pone bien la "password", se reproduzca un video específico.
+
+- Pantalla de About: Cada Aplicación debe tener una pantalla de About (Acerca de) que tenga un código de QR (Barcode Scanner / QR Scanner) con los nombres de los integrantes del grupo, pero a su vez un botón que les permita escanear otra app y les muestre en un Modal quienes fueron los integrantes de la aplicación Escaneada!
+
+
+
+FUNCIONALIDADES:
+- Cuando se sacude el teléfono (): se debe enviar un SMS/Mensaje vía WhatsApp al número configurado para tal fin.. (https://libraries.io/npm/react-native-shake-event)
+
+- Cada vez que se muestre un error, tanto sea por la validación de los campos o porque no se cuenta con un permiso / errores de accesos a una API, Storage etc.. se deben mostrar con un Alert y al mismo tiempo el dispositivo debe Vibrar.
+
