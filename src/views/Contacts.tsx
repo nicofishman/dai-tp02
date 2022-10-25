@@ -23,8 +23,6 @@ const Contacts: FC<ContactsProps> = ({ navigation }) => {
     const [contacts, setContacts] = useState<Contact[]>([]);
 
     const pressContact = (contact: Contact) => {
-        // console.log(contact);
-
         navigation.navigate('SingleContact', {
             contact
         });

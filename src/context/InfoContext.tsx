@@ -8,13 +8,6 @@ interface InfoContextType {
 export const InfoContext = createContext<InfoContextType | null >(null);
 
 const InfoContextProvider: FC<PropsWithChildren> = ({ children }) => {
-    const value = useMemo(() => {
-        return {
-            toggleNumeroEmergencia,
-            isEmergencyNumber
-        };
-    }, []);
-
     const [numeroEmergencia, setNumeroEmergencia] = useState<string[]>([]);
 
     const toggleNumeroEmergencia = (numero: string) => {
@@ -28,6 +21,13 @@ const InfoContextProvider: FC<PropsWithChildren> = ({ children }) => {
     const isEmergencyNumber = (numero: string) => {
         return numeroEmergencia?.includes(numero);
     };
+
+    const value = useMemo(() => {
+        return {
+            toggleNumeroEmergencia,
+            isEmergencyNumber
+        };
+    }, []);
 
     return (
         <InfoContext.Provider value={value}>
