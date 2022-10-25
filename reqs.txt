@@ -2,10 +2,10 @@ PANTALLAS:
 - Pantalla de configuración de Número telefónico de emergencia/aviso: Esta pantalla debe poder configurarse un número de teléfono válido. El mismo se almacena en el LocalStorage del dispositivo.
     async-storage
 
-- Pantalla de visualización de todos los Contactos del Teléfono utilizando la FlatList. Se debe mostrar el Nombre y Apellido / Número telefónico y un indicador si es el Numero de Contacto predeterminado de emergencia (con algún icono o similar)
+[X] Pantalla de visualización de todos los Contactos del Teléfono utilizando la FlatList. Se debe mostrar el Nombre y Apellido / Número telefónico y un indicador si es el Numero de Contacto predeterminado de emergencia (con algún icono o similar)
 
 
-- Pantalla de fecha, hora, temperatura y ubicación. La Temperatura se debe poder obtener según el geo-posicionamiento del dispositivo (Location). 
+[X] Pantalla de fecha, hora, temperatura y ubicación. La Temperatura se debe poder obtener según el geo-posicionamiento del dispositivo (Location). 
     axios
     date-fns
     https://openweathermap.org/api: https://pastebin.com/W17sMvfE (con password de rapofish)
