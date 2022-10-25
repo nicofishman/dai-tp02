@@ -1,22 +1,34 @@
-import type { Contact } from 'expo-contacts';
-import type { RouteProp } from '@react-navigation/native';
-import type { TabParamList } from '../navigators/types';
 import type { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
+import type { Contact } from 'expo-contacts';
+import type { RootStackParamList, TabParamList } from '../navigators/types';
 
+import { CompositeScreenProps } from '@react-navigation/native';
+import { StackScreenProps } from '@react-navigation/stack';
 import * as ExpoContacts from 'expo-contacts';
-import { FlatList, View } from 'react-native';
-import React, { FC, useEffect, useState } from 'react';
 import { styled } from 'nativewind';
+import { FC, useEffect, useState } from 'react';
+import { FlatList, View } from 'react-native';
 
 import ContactCard from '../components/contacts/ContactCard';
 
 const StyledView = styled(View);
 
-interface ContactsProps extends BottomTabScreenProps<TabParamList, 'Contacts'> {
+interface ContactsProps extends CompositeScreenProps<
+BottomTabScreenProps<TabParamList, 'Contacts'>,
+StackScreenProps<RootStackParamList>
+> {
 };
 
-const Contacts: FC<ContactsProps> = ({}) => {
+const Contacts: FC<ContactsProps> = ({ navigation }) => {
     const [contacts, setContacts] = useState<Contact[]>([]);
+
+    const pressContact = (contact: Contact) => {
+        // console.log(contact);
+
+        navigation.navigate('SingleContact', {
+            contact
+        });
+    };
 
     useEffect(() => {
         (async () => {
@@ -38,13 +50,17 @@ const Contacts: FC<ContactsProps> = ({}) => {
     }, []);
 
     return (
-        <StyledView>
+        <StyledView className='items-center justify-center w-full bg-lime-200'>
             <FlatList
+
                 data={contacts}
                 keyExtractor={(item) => item.id}
+                numColumns={3}
+
                 renderItem={({ item }) => (
-                    <ContactCard contact={item} />
+                    <ContactCard contact={item} onPress={pressContact} />
                 )}
+
             />
         </StyledView>
     );

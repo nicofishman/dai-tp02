@@ -14,5 +14,7 @@ type BottomTabType = BottomTabNavigationProp<TabParamList>;
 
 type RootStackParamList = {
     BottomTab: NavigatorScreenParams<TabParamList>;
-    SingleContact: Contact;
+    SingleContact: {
+        contact: Contact;
+    }
 }
