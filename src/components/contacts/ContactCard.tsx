@@ -2,7 +2,7 @@ import type { Contact } from 'expo-contacts';
 
 import clsx from 'clsx';
 import { styled } from 'nativewind';
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
 import { useInfoContext } from '../../context/InfoContext';
@@ -35,4 +35,4 @@ const ContactCard: FC<ContactCardProps> = ({ contact, onPress }) => {
     );
 };
 
-export default ContactCard;
+export default React.memo(ContactCard);
