@@ -1,5 +1,5 @@
 PANTALLAS:
-- Pantalla de configuración de Número telefónico de emergencia/aviso: Esta pantalla debe poder configurarse un número de teléfono válido. El mismo se almacena en el LocalStorage del dispositivo.
+[X] Pantalla de configuración de Número telefónico de emergencia/aviso: Esta pantalla debe poder configurarse un número de teléfono válido. El mismo se almacena en el LocalStorage del dispositivo.
     async-storage
 
 [X] Pantalla de visualización de todos los Contactos del Teléfono utilizando la FlatList. Se debe mostrar el Nombre y Apellido / Número telefónico y un indicador si es el Numero de Contacto predeterminado de emergencia (con algún icono o similar)
@@ -14,7 +14,7 @@ PANTALLAS:
     expo-camera
     expo-image-picker
 
-- Pantalla de video: Tiene que tener un input de texto que si se pone bien la "password", se reproduzca un video específico.
+[X] Pantalla de video: Tiene que tener un input de texto que si se pone bien la "password", se reproduzca un video específico.
     expo-av
 
 - Pantalla de About: Cada Aplicación debe tener una pantalla de About (Acerca de) que tenga un código de QR (Barcode Scanner / QR Scanner) con los nombres de los integrantes del grupo, pero a su vez un botón que les permita escanear otra app y les muestre en un Modal quienes fueron los integrantes de la aplicación Escaneada!
@@ -25,5 +25,5 @@ FUNCIONALIDADES:
 - Cuando se sacude el teléfono (): se debe enviar un SMS/Mensaje vía WhatsApp al número configurado para tal fin.. (https://github.com/SebiPochi/DAI-sensores)
     expo-sensors
 
-- Cada vez que se muestre un error, tanto sea por la validación de los campos o porque no se cuenta con un permiso / errores de accesos a una API, Storage etc.. se deben mostrar con un Alert y al mismo tiempo el dispositivo debe Vibrar.
+[X] Cada vez que se muestre un error, tanto sea por la validación de los campos o porque no se cuenta con un permiso / errores de accesos a una API, Storage etc.. se deben mostrar con un Alert y al mismo tiempo el dispositivo debe Vibrar.
     toast
