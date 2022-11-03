@@ -8,6 +8,7 @@ type TabParamList = {
     Contacts: undefined;
     SelectBackgroundImage: undefined;
     VideoPlayer: undefined;
+    About: undefined;
 }
 
 type BottomTabType = BottomTabNavigationProp<TabParamList>;

@@ -36,6 +36,8 @@ const VideoPlayer: FC<VideoPlayerProps> = () => {
                 bottomOffset: 40,
                 position: 'top'
             });
+            // vibrate 3 times 0.2 s with 0.1 interval
+            Vibration.vibrate([200, 100, 200, 100, 200], false);
         } else {
             Toast.show({
                 type: 'error',

@@ -1,42 +1,42 @@
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { styled } from 'nativewind';
-import { FC, useEffect, useState } from 'react';
-import { Text, TouchableOpacity, View, Image } from 'react-native';
+import { FC } from 'react';
+import { TouchableOpacity, View } from 'react-native';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
-import { WeatherApi } from '../../../interfaces';
-import { getWeather } from '../../services/WeatherService';
+import { TabParamList } from '../../navigators/types';
 
 const StyledView = styled(View);
 const StyledTouchableOpacity = styled(TouchableOpacity);
-const StyledText = styled(Text);
-const StyledImage = styled(Image);
 
 interface NavbarProps extends BottomTabBarProps {
 
 };
 
+const routeToIcon: Record<keyof TabParamList, JSX.Element> = {
+    Contacts: <AntDesign name='contacts' size={24} />,
+    DateTimeAndWeather: <AntDesign name='cloud' size={24} />,
+    SelectBackgroundImage: <AntDesign name='picture' size={24} />,
+    VideoPlayer: <AntDesign name='play' size={24} />,
+    About: <AntDesign name='qrcode' size={24} />
+};
+
 const Navbar: FC<NavbarProps> = ({ state, descriptors, navigation }) => {
-    const [weather, setWeather] = useState<WeatherApi | null>(null);
+    // const [weather, setWeather] = useState<WeatherApi | null>(null);
 
-    useEffect(() => {
-        (async () => {
-            const w = await getWeather();
+    // useEffect(() => {
+    //     (async () => {
+    //         const w = await getWeather();
 
-            setWeather(w);
-        })();
-    }, []);
+    //         setWeather(w);
+    //     })();
+    // }, []);
 
     return (
-        <StyledView className='flex-row h-12'>
+        <StyledView className='flex-row h-16'>
             {
                 state.routes.map((route, index) => {
                     const { options } = descriptors[route.key];
-                    const label =
-                        options.tabBarLabel !== undefined
-                            ? options.tabBarLabel
-                            : options.title !== undefined
-                                ? options.title
-                                : route.name;
 
                     const isFocused = state.index === index;
 
@@ -66,13 +66,12 @@ const Navbar: FC<NavbarProps> = ({ state, descriptors, navigation }) => {
                             accessibilityLabel={options.tabBarAccessibilityLabel}
                             accessibilityRole="button"
                             accessibilityState={isFocused ? { selected: true } : {}}
-                            className='flex-1 flex-col justify-center items-center'
-                            style={{ flex: 1 }}
+                            className='flex-1 flex-col justify-center items-center border-r-2 border-gray-300 my-2'
                             testID={options.tabBarTestID}
                             onLongPress={onLongPress}
                             onPress={onPress}
                         >
-                            {
+                            {/* {
                                 route.name === 'DateTimeAndWeather' && weather && (
                                     <StyledView>
                                         <StyledImage className='w-8 h-8 -m-2' source={{
@@ -81,10 +80,10 @@ const Navbar: FC<NavbarProps> = ({ state, descriptors, navigation }) => {
 
                                     </StyledView>
                                 )
-                            }
-                            <StyledText style={{ color: isFocused ? '#673ab7' : '#222' }}>
-                                {label.toString()}
-                            </StyledText>
+                            } */}
+                            <>
+                                {routeToIcon[route.name as keyof TabParamList]}
+                            </>
                         </StyledTouchableOpacity>
                     );
                 })}

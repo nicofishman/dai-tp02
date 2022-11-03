@@ -50,11 +50,9 @@ const Contacts: FC<ContactsProps> = ({ navigation }) => {
     return (
         <StyledView className='items-center justify-center w-full bg-lime-200'>
             <FlatList
-
                 data={contacts}
                 keyExtractor={(item) => item.id}
                 numColumns={3}
-
                 renderItem={({ item }) => (
                     <ContactCard contact={item} onPress={pressContact} />
                 )}

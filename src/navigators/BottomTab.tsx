@@ -9,6 +9,7 @@ import DateTimeAndWeather from '../views/DatetimeAndWeather';
 import VideoPlayer from '../views/VideoPlayer';
 import SelectBackgroundImage from '../views/SelectBackgroundImage';
 import Navbar from '../components/common/Navbar';
+import About from '../views/About';
 
 interface BottomTabProps {
 
@@ -20,8 +21,8 @@ const BottomTab: FC<BottomTabProps> = () => {
     return (
         <Tab.Navigator
             sceneContainerStyle={{
-                paddingTop: StatusBar.currentHeight,
-                marginBottom: 12
+                flex: 1,
+                paddingTop: StatusBar.currentHeight
             }}
             screenOptions={{
                 headerShown: false
@@ -31,6 +32,7 @@ const BottomTab: FC<BottomTabProps> = () => {
             <Tab.Screen component={Contacts} name="Contacts" options={{ tabBarLabel: 'Contacts' }} />
             <Tab.Screen component={SelectBackgroundImage} name="SelectBackgroundImage" options={{ tabBarLabel: 'Background' }} />
             <Tab.Screen component={VideoPlayer} name="VideoPlayer" options={{ tabBarLabel: 'Video' }} />
+            <Tab.Screen component={About} name="About" options={{ tabBarLabel: 'About' }} />
         </Tab.Navigator>
     );
 };
